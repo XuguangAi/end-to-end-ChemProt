@@ -7,7 +7,7 @@ This repository contains code for our paper: End-to-End Models for Chemical–Pr
 pip install -r requirements.txt
 ```
 ## Dataset
-Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). The preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
+Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
 
 ## Training entity models
 ```
