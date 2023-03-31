@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ## Dataset
 Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
 
-## Training entity models
+## Train entity models
 ```
 python 'PURE_A/run_entity.py' \
 --do_train --do_eval \
@@ -26,7 +26,7 @@ python 'PURE_A/run_entity.py' \
 --output_dir "chemprot_models/chemprot_a/ent_$seed"
 ```
 
-## Training relation models
+## Train relation models
 ```
 python 'PURE_A/run_relation.py' \
 --task chemprot_5 \
