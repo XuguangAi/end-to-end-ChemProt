@@ -1,13 +1,13 @@
 # End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies
 
-This repository contains code for our paper: End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies.
+This repository contains code for our paper to appear in ICHI 2023: End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies.
 
 ## Install dependencies
 ```
 pip install -r requirements.txt
 ```
 ## Dataset
-Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
+The full original dataset is availabe at this link: [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). However, for fair comparsion, we have made available pre-processed data suitable for span-based methods in this folder of this repo: training/development/test datasets are in `chemprot_data/processed_data/json`.
 
 ## Run scripts
 The code was mainly modified from PURE. Please see more details about arguments in [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies) repository. `PURE_A` to `PURE_E` correspond to 6 models with different relation representations in our paper. Below we show an example running the model with relation representation A.
