@@ -10,9 +10,9 @@ pip install -r requirements.txt
 Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
 
 ## Run scripts
-The code was mainly modified from PURE. Please see more details in [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies) repository.
+The code was mainly modified from PURE. Please see more details about arguments in [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies) repository. `PURE_A` to `PURE_E` correspond to 6 models with different relation representations in our paper. Below we show an example running the model with relation representation A.
 
-## Train entity models
+### Train entity models
 ```
 python 'PURE_A/run_entity.py' \
 --do_train --do_eval \
@@ -29,7 +29,7 @@ python 'PURE_A/run_entity.py' \
 --output_dir "chemprot_models/chemprot_a/ent_$seed"
 ```
 
-## Train relation models
+### Train relation models
 ```
 python 'PURE_A/run_relation.py' \
 --task chemprot_5 \
@@ -48,7 +48,7 @@ python 'PURE_A/run_relation.py' \
 --output_dir "chemprot_models/chemprot_a/rel_$seed"
 ```
 
-## Inference
+### Inference
 ```
 python 'PURE_A/run_entity.py' \
 --do_eval --eval_test \
