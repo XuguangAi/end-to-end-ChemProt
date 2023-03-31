@@ -72,10 +72,11 @@ python 'PURE_A/run_relation.py' \
 python "PURE_A/run_eval.py" --prediction_file "chemprot_models/chemprot_a/rel_$seed/"/predictions.json
 ```
 
+## Evaluation results
 
 
 
-
+<img width="858" alt="Screenshot 2023-03-31 at 16 18 20" src="https://user-images.githubusercontent.com/82428718/229223522-88ba34fb-650e-4276-a334-5918cc17b97f.png">
 
 
 
