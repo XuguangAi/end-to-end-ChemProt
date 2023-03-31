@@ -9,6 +9,9 @@ pip install -r requirements.txt
 ## Dataset
 Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
 
+## Run scripts
+The code was mainly modified from PURE. Please see more details in [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies) repository.
+
 ## Train entity models
 ```
 python 'PURE_A/run_entity.py' \
