@@ -74,7 +74,7 @@ python "PURE_A/run_eval.py" --prediction_file "chemprot_models/chemprot_a/rel_$s
 
 ## Evaluation results
 
-![An example image](https://example.com/image.jpg)
+![results](https://github.com/XuguangAi/end-to-end-ChemProt/blob/main/Figs/results.png)
 
 
 
