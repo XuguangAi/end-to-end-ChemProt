@@ -1,16 +1,16 @@
-# End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies
+# End-to-End Models for Chemical–Protein Interaction Extraction
 
-This repository contains code for our paper: End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies.
+This repository contains code for our paper to appear in ICHI 2023: End-to-End Models for Chemical–Protein Interaction Extraction: Better Tokenization and Span-Based Pipeline Strategies.
 
 ## Install dependencies
 ```
 pip install -r requirements.txt
 ```
 ## Dataset
-Download [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). Preprocessed training/development/test datasets are in `chemprot_data/processed_data/json`.
+The full original dataset is availabe at this link: [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). However, for fair comparsion, we have made available pre-processed data suitable for span-based methods in this folder of this repo: `chemprot_data/processed_data/json`. To clarify, the original training and validation datasets were combined and split into 80:20 partitions for our modeling. This is the split that is made available in tokenized format in this repo's data folder. 
 
 ## Run scripts
-The code was mainly modified from PURE. Please see more details about arguments in [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies) repository. `PURE_A` to `PURE_E` correspond to 6 models with different relation representations in our paper. Below we show an example running the model with relation representation A.
+The code for this project is based on the span-based pipeline model: Princeton University Relation Extraction (PURE) by Zhong and Chen (NAACL 2021). Please see further details for different arguments in the original repository by them: [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies). `PURE_A` to `PURE_E` in our repo correspond to 6 models with different relation representations in our paper. Below we show an example running the model with relation representation A.
 
 ### Train entity models
 ```
@@ -71,10 +71,6 @@ python 'PURE_A/run_relation.py' \
 
 python "PURE_A/run_eval.py" --prediction_file "chemprot_models/chemprot_a/rel_$seed/"/predictions.json
 ```
-
-## Evaluation results
-
-![An example image](https://example.com/image.jpg)
 
 
 
