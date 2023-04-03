@@ -7,7 +7,7 @@ This repository contains code for our paper to appear in ICHI 2023: End-to-End M
 pip install -r requirements.txt
 ```
 ## Dataset
-The full original dataset is availabe at this link: [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). However, for fair comparsion, we have made available pre-processed data suitable for span-based methods in this folder of this repo: `chemprot_data/processed_data/json`. To clarify, the original training and validation datasets were combined and split into 80:20 partitions for our modeling. This is the split that is made available in tokenized format in this repo's data folder. 
+The full original dataset is availabe at this link: [ChemProt dataset of BioCreative VI](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-5/). However, for fair comparsion, we have made available preprocessed data suitable for span-based methods in this folder of this repository: `chemprot_data/processed_data/json`. To clarify, the original training and validation datasets were combined and split into 80:20 partitions for our modeling. This is the split that is made available in tokenized format in this repository's data folder. 
 
 ## Run scripts
 The code for this project is based on the span-based pipeline model: Princeton University Relation Extraction (PURE) by Zhong and Chen (NAACL 2021). Please see further details for different arguments in the original repository by them: [PURE](https://github.com/princeton-nlp/PURE#Install-dependencies). `PURE_A` to `PURE_E` in our repo correspond to 6 models with different relation representations in our paper. Below we show an example running the model with relation representation A.
