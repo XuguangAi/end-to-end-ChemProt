@@ -79,7 +79,7 @@ def generate_relation_data(entity_data, use_gold=False, context_window=0):
                     sub = sent_ner[x]
                     obj = sent_ner[y]
                     
-                    if sub.label == 'CHEMICAL' and obj.label == 'GENE':
+                    if sub.label == 'CHEMICAL' and obj.label == 'GENE': # Subject can only be CHEMICAL and object can only be GENE
                     
                         label = gold_rel.get((sub.span, obj.span), 'no_relation')
                         sample = {}
