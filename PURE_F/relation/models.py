@@ -32,29 +32,26 @@ class BertForRelation(BertPreTrainedModel):
         cls_output = torch.cat([a[i].unsqueeze(0) for a, i in zip(sequence_output, sub_start_idx - sub_start_idx)])
         
         middle_output = torch.tensor([])
-        
         middle_output = middle_output.to(device='cuda')
 
         for a, i, j, k, l in zip(sequence_output, sub_start_idx, sub_end_idx, obj_start_idx, obj_end_idx):
-            
-            if j + 2 <= k:
+            if j + 2 <= k: # Subject is before object and there is at least one token between them
                 temp_tensor = a[i] - a[i]
                 for t in range(k-j-1):
                     temp_tensor += a[j+1+t]
-                temp_tensor = temp_tensor / (k-j-1)
-                
-            elif l + 2 <= i:
+                temp_tensor = temp_tensor / (k-j-1)   
+            elif l + 2 <= i: # Object is before subject and there is at least one token between them
                 temp_tensor = a[i] - a[i]
                 for t in range(i-l-1):
                     temp_tensor += a[l+1+t]
                 temp_tensor = temp_tensor / (i-l-1)
-                
             else:
-                temp_tensor = a[i] - a[i]
-                
+                temp_tensor = a[i] - a[i] # The middle embedding is zero when there is no token between subject and object
             middle_output = torch.cat((middle_output, temp_tensor.unsqueeze(0)))
        
         rep = torch.cat((cls_output, sub_start_output, sub_end_output, middle_output, obj_start_output, obj_end_output), dim=1)
+        # Relation representation F: [cls_output: sub_start_output: sub_end_output: middle_output: obj_start_output: obj_end_output]
+
         rep = self.layer_norm(rep)
         rep = self.dropout(rep)
         logits = self.classifier(rep)

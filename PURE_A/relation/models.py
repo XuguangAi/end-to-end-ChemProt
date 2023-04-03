@@ -23,9 +23,13 @@ class BertForRelation(BertPreTrainedModel):
     def forward(self, input_ids, token_type_ids=None, attention_mask=None, labels=None, sub_start_idx=None, sub_end_idx=None, obj_start_idx=None, obj_end_idx=None, input_position=None):
         outputs = self.bert(input_ids, token_type_ids=token_type_ids, attention_mask=attention_mask, output_hidden_states=False, output_attentions=False, position_ids=input_position)
         sequence_output = outputs[0]
-        sub_output = torch.cat([a[i].unsqueeze(0) for a, i in zip(sequence_output, sub_start_idx)])
-        obj_output = torch.cat([a[i].unsqueeze(0) for a, i in zip(sequence_output, obj_start_idx)])
-        rep = torch.cat((sub_output, obj_output), dim=1)
+
+        sub_start_output = torch.cat([a[i].unsqueeze(0) for a, i in zip(sequence_output, sub_start_idx)])
+        obj_start_output = torch.cat([a[i].unsqueeze(0) for a, i in zip(sequence_output, obj_start_idx)])
+        
+        rep = torch.cat((sub_start_output, obj_start_output), dim=1)
+         # Relation representation A: [sub_start_output: obj_start_output]
+
         rep = self.layer_norm(rep)
         rep = self.dropout(rep)
         logits = self.classifier(rep)
