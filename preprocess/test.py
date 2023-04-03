@@ -12,7 +12,7 @@ import stanza
 from tqdm import tqdm
 from collections import Counter
 
-Path = '/Users/XA/Desktop/CHEMPROT/ChemProt_Corpus/chemprot_test_gs' # Path to the training dataset file
+Path = '.../ChemProt_Corpus/chemprot_test_gs' # Path to the test dataset folder
 
 nlp = stanza.Pipeline(lang='en', processors='tokenize')
 
